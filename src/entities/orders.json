@@ -1,0 +1,57 @@
+
+{
+  "name": "orders",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["user_id", "vehicle_id", "total_amount", "payment_method", "status"],
+        "properties": {
+          "user_id": {
+            "bsonType": "string"
+          },
+          "vehicle_id": {
+            "bsonType": "string"
+          },
+          "total_amount": {
+            "bsonType": "number",
+            "minimum": 0
+          },
+          "payment_method": {
+            "bsonType": "string",
+            "enum": ["credit_card", "credit_installments", "debit_card", "cash", "pix"]
+          },
+          "installments": {
+            "bsonType": "int",
+            "minimum": 1,
+            "maximum": 36
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["pending", "approved", "rejected", "completed", "cancelled"]
+          },
+          "payment_details": {
+            "bsonType": "object"
+          },
+          "notes": {
+            "bsonType": "string"
+          },
+          "creator": {
+            "bsonType": "string"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

@@ -1,0 +1,89 @@
+
+{
+  "name": "vehicles",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["brand", "model", "year", "price", "mileage", "color", "fuel", "transmission", "status"],
+        "properties": {
+          "brand": {
+            "bsonType": "string",
+            "enum": ["Volkswagen", "Chevrolet", "Hyundai", "Fiat", "Honda", "Citroën", "Toyota", "Ford"]
+          },
+          "model": {
+            "bsonType": "string"
+          },
+          "year": {
+            "bsonType": "int",
+            "minimum": 1990,
+            "maximum": 2025
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0
+          },
+          "mileage": {
+            "bsonType": "int",
+            "minimum": 0
+          },
+          "color": {
+            "bsonType": "string",
+            "enum": ["Branco", "Preto", "Prata", "Azul", "Vermelho", "Cinza", "Verde", "Amarelo", "Marrom"]
+          },
+          "fuel": {
+            "bsonType": "string",
+            "enum": ["Flex", "Gasolina", "Etanol", "Diesel", "Híbrido", "Elétrico"]
+          },
+          "transmission": {
+            "bsonType": "string",
+            "enum": ["Manual", "Automático", "CVT", "Semi-automático"]
+          },
+          "doors": {
+            "bsonType": "int",
+            "enum": [2, 4, 5]
+          },
+          "engine": {
+            "bsonType": "string"
+          },
+          "description": {
+            "bsonType": "string"
+          },
+          "features": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            }
+          },
+          "images": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            }
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["available", "sold", "reserved"]
+          },
+          "isNational": {
+            "bsonType": "bool"
+          },
+          "creator": {
+            "bsonType": "string"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
